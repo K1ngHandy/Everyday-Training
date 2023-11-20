@@ -8,8 +8,26 @@
 <body>
     <h1>Everyday Training</h1>
     <p>See console...</p>
+    <button id="login-button"></button>
     <script>
-        
+        let isUserLoggedIn = false;
+
+        // get button element from HTML with id: 'login-button'
+        const button = document.querySelector('#login-button');
+
+        // update text of button based on whether user is logged in
+        button.textContent = isUserLoggedIn ? 'Logout' : 'Login';
+
+        // 2nd example - when user hits button, update button text; so ternary is no longer efficient
+        button.addEventListener('click', () => {
+            if (isUserLoggedIn) {
+                logout()
+                button.textContent = 'Login'
+            } else {
+                login()
+                button.textContent = 'Logout'
+            }
+        });
     </script>
 </body>
 </html>
